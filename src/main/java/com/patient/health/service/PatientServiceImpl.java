@@ -5,7 +5,8 @@ import com.patient.health.model.Patient;
 import com.patient.health.repo.PatientRepository;
 import com.patient.health.request.PatientRequest;
 import com.patient.health.response.MessageResponse;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,9 +17,15 @@ import java.util.Optional;
 public class PatientServiceImpl implements PatientService {
     @Autowired
     PatientRepository patientRepository;
+    /**
+	 * Logger object.
+	 */
+	private static Logger logger = LogManager.getLogger();
 
     @Override
     public MessageResponse createPatient(PatientRequest patientRequest) {
+    	
+    	logger.info("PatientService...addPatient details...patient = [{}]", patientRequest);
         Patient newPatient = new Patient();
         newPatient.setName(patientRequest.getName());
         newPatient.setGender(patientRequest.getGender());
@@ -33,9 +40,10 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public Optional<Patient> updatePatient(Integer patientId, PatientRequest patientRequest)  throws ResourceNotFoundException{
-        Optional<Patient> patient = patientRepository.findById(patientId);
+    	logger.info("PatientService...updatePatient details...patientId = [{}]...patient = [{}]", patientId, patientRequest);
+    	Optional<Patient> patient = patientRepository.findById(patientId);
         if (patient.isEmpty()){
-        throw new ResourceNotFoundException("Patient", "id", patientId);
+        throw new ResourceNotFoundException("Patient not found with Id = " + patientId);
         }
         else
         patient.get().setName(patientRequest.getName());
@@ -49,8 +57,9 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public Patient getASinglePatient(Integer patientId) throws ResourceNotFoundException{
+    	logger.info("PatientService...getPatient()...patientId = [{}]", patientId);
         return patientRepository.findById(patientId)
-                .orElseThrow(() -> new ResourceNotFoundException("Patient", "patientId", patientId));
+                .orElseThrow(() -> new ResourceNotFoundException("Patient not found with Id = " + patientId));
     }
 
     @Override
@@ -59,10 +68,11 @@ public class PatientServiceImpl implements PatientService {
     }
     @Override
     public void deletePatient(Integer patientId) throws ResourceNotFoundException {
+    	logger.info("PatientService...deletePatient details...patientId = [{}]", patientId);
         if (patientRepository.getById(patientId).getPatientId().equals(patientId)){
         	patientRepository.deleteById(patientId);
         }
-        else throw new ResourceNotFoundException("Patient", "patientId", patientId);
+        else throw new ResourceNotFoundException("Patient not found with Id = " + patientId);
     }
 
 	@Override
