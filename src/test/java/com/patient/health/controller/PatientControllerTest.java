@@ -6,8 +6,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -29,7 +27,6 @@ import com.patient.health.service.PatientService;
 
 @WebMvcTest
 public class PatientControllerTest {
-	@SuppressWarnings("unused")
 	@Autowired
 	private MockMvc mockMvc;
 
@@ -47,9 +44,11 @@ public class PatientControllerTest {
 			+ "\"gender\":\"Male\"," + "\"dateOfBirth\":\"10-10-1989\"," + "\"address\":\"Delhi\","
 			+ "\"phoneNumber\":\"9910158813\"}";
 	
-	private String invalidResponseBody = "{" + "\"name\":\"@\"," 
-			+ "\"gender\":\"Male\"," + "\"dateOfBirth\":\"10-10-1989\"," + "\"address\":\"Delhi\","
-			+ "\"phoneNumber\":\"9910158813\"}";
+	/*
+	 * private String invalidResponseBody = "{" + "\"name\":\"@\"," +
+	 * "\"gender\":\"Male\"," + "\"dateOfBirth\":\"10-10-1989\"," +
+	 * "\"address\":\"Delhi\"," + "\"phoneNumber\":\"9910158813\"}";
+	 */
 	
 	
 	private List<Patient> getpatient() {
