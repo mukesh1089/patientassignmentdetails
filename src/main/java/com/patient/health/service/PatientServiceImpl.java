@@ -69,13 +69,13 @@ public class PatientServiceImpl implements PatientService {
     }
     @Override
     public void deletePatient(Integer patientId) throws ResourceNotFoundException {
+    	
     	logger.info("PatientService...deletePatient details...patientId = [{}]", patientId);
-        if (patientRepository.getById(patientId).getPatientId().equals(patientId)){
-        	patientRepository.deleteById(patientId);
-        }
-        else throw new ResourceNotFoundException("Patient not found with Id = " + patientId);
+    	Patient patient = patientRepository.findById(patientId)
+                .orElseThrow(() -> new ResourceNotFoundException("Patient not found with Id = " + patientId));
+    	patientRepository.delete(patient);
     }
-
+        
 	@Override
 	public List<Patient> findByName(String name) {
 		return patientRepository.findByName(name);

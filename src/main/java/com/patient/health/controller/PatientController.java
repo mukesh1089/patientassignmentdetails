@@ -59,7 +59,7 @@ public class PatientController {
 	 */
 
 	@GetMapping("/patient/{patientId}")
-	public ResponseEntity<Patient> getPatientById(@RequestParam Integer patientId) {
+	public ResponseEntity<Patient> getPatientById(@PathVariable Integer patientId) {
 		logger.info("PatientController...getPatient()...patientId = [{}]", patientId);
 		Patient patient = patientService.getASinglePatient(patientId);
 		return new ResponseEntity<>(patient, HttpStatus.OK);
@@ -112,7 +112,7 @@ public class PatientController {
 	}
 
 	@GetMapping("/patient/name")
-	public ResponseEntity<List<Patient>> getPatientByName(@RequestParam String name) {
+	public ResponseEntity<List<Patient>> getPatientByName(@PathVariable String name) {
 		return new ResponseEntity<List<Patient>>(patientService.findByName(name), HttpStatus.OK);
 
 	}
