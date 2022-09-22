@@ -46,6 +46,7 @@ public class PatientServiceImpl implements PatientService {
         throw new ResourceNotFoundException("Patient not found with Id = " + patientId);
         }
         else
+        	
         patient.get().setName(patientRequest.getName());
         patient.get().setGender(patientRequest.getGender());
         patient.get().setAddress(patientRequest.getAddress());
