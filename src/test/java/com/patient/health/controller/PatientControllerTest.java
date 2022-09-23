@@ -41,8 +41,8 @@ public class PatientControllerTest {
 	private PatientController patientController;
 	
 	private String validResponseBody = "{" + "\"name\":\"Mukesh\"," 
-			+ "\"gender\":\"Male\"," + "\"dateOfBirth\":\"10-10-1989\"," + "\"address\":\"Delhi\","
-			+ "\"phoneNumber\":\"9910158813\"}";
+			+ "\"gender\":\"Male\"," + "\"dob\":\"10-10-1989\"," + "\"address\":\"Delhi\","
+			+ "\"telephonenumber\":\"9910158813\"}";
 	
 	/*
 	 * private String invalidResponseBody = "{" + "\"name\":\"@\"," +
@@ -125,8 +125,8 @@ public class PatientControllerTest {
 	
 	@Test
 	public void addPatient() throws Exception {
-		Mockito.when(patientRepository.findById(Mockito.anyInt())).thenReturn(Optional.of(getpatient().get(0)));
-		Mockito.when(patientService.getAllPatient()).thenReturn(getpatient());
+		//Mockito.when(patientRepository.findById(Mockito.anyInt())).thenReturn(Optional.of(getpatient().get(0)));
+		//Mockito.when(patientService.getAllPatient()).thenReturn(getpatient());
 
 		MvcResult requestResult = mockMvc
 				.perform(post("/api/patient")

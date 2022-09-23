@@ -134,5 +134,15 @@ public class PatientServiceImplTest
 		});
 		assertThat(exception.getMessage());
 	}
+	/*
+	 * @Test public void getPatientName() {
+	 * Mockito.when(patientRepository.findByName(Mockito.anyString())).thenReturn())
+	 * ; Patient patient = patientService.findByName(Mockito.anyString());
+	 * assertNotNull(patient.toString()); assertNotNull(patient.getName());
+	 * assertNotNull(patient.getDob()); assertNotNull(patient.getGender());
+	 * assertNotNull(patient.getAddress());
+	 * assertNotNull(patient.getTelephonenumber()); }
+	 */
+	
 }
 

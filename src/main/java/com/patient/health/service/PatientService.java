@@ -11,12 +11,17 @@ import java.util.Optional;
 
 @Component
 public interface PatientService {
-    MessageResponse createPatient(PatientRequest patientRequest);
-    Optional<Patient> updatePatient(Integer patientId, PatientRequest patientRequest);
-    void deletePatient(Integer patientId);
-    Patient getASinglePatient(Integer patientId);
-    List<Patient> getAllPatient();
-	List<Patient> findByName(String name);
 	
-    
+	MessageResponse createPatient(PatientRequest patientRequest);
+
+	Optional<Patient> updatePatient(Integer patientId, PatientRequest patientRequest);
+
+	void deletePatient(Integer patientId);
+
+	Patient getASinglePatient(Integer patientId);
+
+	List<Patient> getAllPatient();
+
+	List<Patient> findByName(String name);
+
 }

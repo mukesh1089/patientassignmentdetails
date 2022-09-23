@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: com.patient.health.controller.PatientControllerTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 3.632 s <<< FAILURE! - in com.patient.health.controller.PatientControllerTest
+addPatient  Time elapsed: 0.172 s  <<< FAILURE!
+java.lang.AssertionError: Status expected:<201> but was:<400>
+	at com.patient.health.controller.PatientControllerTest.addPatient(PatientControllerTest.java:135)
+
+updatePatient  Time elapsed: 0.014 s  <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<400>
+	at com.patient.health.controller.PatientControllerTest.updatePatient(PatientControllerTest.java:149)
+

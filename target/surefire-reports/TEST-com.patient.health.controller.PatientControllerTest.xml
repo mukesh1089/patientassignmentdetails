@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.patient.health.HealthDomainApplicationTests" time="4.961" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.patient.health.controller.PatientControllerTest" time="3.632" tests="7" errors="0" skipped="0" failures="2">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -56,5 +56,95 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="contextLoads" classname="com.patient.health.HealthDomainApplicationTests" time="0.005"/>
+  <testcase name="getPatientsEmpty" classname="com.patient.health.controller.PatientControllerTest" time="0.154"/>
+  <testcase name="getPatientByIdNotFound" classname="com.patient.health.controller.PatientControllerTest" time="0.037"/>
+  <testcase name="deletePatient" classname="com.patient.health.controller.PatientControllerTest" time="0.045"/>
+  <testcase name="getPatients" classname="com.patient.health.controller.PatientControllerTest" time="0.061"/>
+  <testcase name="getPatientById" classname="com.patient.health.controller.PatientControllerTest" time="0.026"/>
+  <testcase name="addPatient" classname="com.patient.health.controller.PatientControllerTest" time="0.172">
+    <failure message="Status expected:&lt;201&gt; but was:&lt;400&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Status expected:<201> but was:<400>
+	at com.patient.health.controller.PatientControllerTest.addPatient(PatientControllerTest.java:135)
+]]></failure>
+    <system-out><![CDATA[
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/patient
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"105"]
+             Body = {"name":"Mukesh","gender":"Male","dateOfBirth":"10-10-1989","address":"Delhi","phoneNumber":"9910158813"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.patient.health.controller.PatientController
+           Method = com.patient.health.controller.PatientController#addPatient(PatientRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.web.bind.MethodArgumentNotValidException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 400
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"telephonenumber":"Telephone is not null","dob":"Date of Birth is not null"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+]]></system-out>
+  </testcase>
+  <testcase name="updatePatient" classname="com.patient.health.controller.PatientControllerTest" time="0.014">
+    <failure message="Status expected:&lt;200&gt; but was:&lt;400&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Status expected:<200> but was:<400>
+	at com.patient.health.controller.PatientControllerTest.updatePatient(PatientControllerTest.java:149)
+]]></failure>
+    <system-out><![CDATA[
+MockHttpServletRequest:
+      HTTP Method = PUT
+      Request URI = /api/patient/17
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"105"]
+             Body = {"name":"Mukesh","gender":"Male","dateOfBirth":"10-10-1989","address":"Delhi","phoneNumber":"9910158813"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.patient.health.controller.PatientController
+           Method = com.patient.health.controller.PatientController#updatePatient(Integer, PatientRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.web.bind.MethodArgumentNotValidException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 400
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"telephonenumber":"Telephone is not null","dob":"Date of Birth is not null"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+]]></system-out>
+  </testcase>
 </testsuite>

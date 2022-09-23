@@ -18,23 +18,23 @@ public class Patient {
 	        @Column(name="PATIENT_ID")
 	        private Integer patientId;
 	        
-	        @NotBlank(message = "Name is mandatory")
+	        
 	        @Column(name="NAME")
 	        private String name;
 	        
-	        @NotBlank(message = "Date of Birth  is mandatory")
+	        
 	        @Column(name="DATE_BIRTH")
 	        private String dob;
 	        
-	        @NotBlank(message = "Gender is mandatory")
+	       
 	        @Column(name="GENDER")
 	        private String gender;
 	        
-	        @NotBlank(message = "Address is mandatory")
+	       
 	        @Column(name="ADDRESS")
 	        private String address;
 	        
-	        @NotBlank(message = "Telephone no is mandatory")
+	        
 	        @Column(name="TELEPHONE_NUMBER")
 	        private String telephonenumber;
 

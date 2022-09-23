@@ -111,7 +111,7 @@ public class PatientController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
-	@GetMapping("/patient/name")
+	@GetMapping("/patient/name/{name}")
 	public ResponseEntity<List<Patient>> getPatientByName(@PathVariable String name) {
 		return new ResponseEntity<List<Patient>>(patientService.findByName(name), HttpStatus.OK);
 
